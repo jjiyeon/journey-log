@@ -7,6 +7,13 @@ module.exports = {
         path: `${__dirname}/src/markdown-pages`
       }
     },
-    "gatsby-transformer-remark"
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      }
+    },
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-sass`
   ]
 };
