@@ -15,13 +15,19 @@ const Layout = () => {
             <UI.Info>
               <h1>journey.log</h1>
               <p>Frontend에 관심이 많고 떡볶이를 좋아합니다</p>
-              <a href="https://github.com/jjiyeon">github</a>
-              <a>About</a>
+              <a
+                href="https://github.com/jjiyeon"
+                target="_blank"
+                alt="journey github"
+              >
+                <i>github</i>
+              </a>
             </UI.Info>
           </UI.HeaderItem>
         </UI.Header>
         <UI.Main>
           <UI.Category>
+            <button>All</button>
             <button>About</button>
             <button>React</button>
             <button>Javascript</button>

@@ -1,4 +1,12 @@
 import styled from "styled-components";
+import gitIcon from "../../images/Octicons-mark-github.png";
+
+const size = {
+  desktop: "770px"
+};
+const responsive = {
+  desktop: `(min-width: ${size.desktop})`
+};
 
 const Wrapper = styled.div`
   width: 100%;
@@ -11,11 +19,18 @@ const Header = styled.header`
   background-color: #9696ea;
 `;
 const HeaderItem = styled.div`
-  position: absolute;
+  position: sticky;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0 auto;
+  text-align: center;
+  transform: translate(0, -50%);
+
+  @media ${responsive.desktop} {
+    position: absolute;
+    text-align: inherit;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+  }
 `;
 const Logo = styled.div`
   display: inline-block;
@@ -29,6 +44,7 @@ const Logo = styled.div`
 const Info = styled.div`
   display: inline-block;
   color: #fff;
+  text-align: left;
   h1 {
     font-size: 2rem;
     margin: 0;
@@ -38,31 +54,53 @@ const Info = styled.div`
     font-size: 80%;
   }
   a {
-    &:before {
-      content: "";
-      background: url("../../images/Octicons-mark-github.svg");
+    i {
+      font-size: 0;
+      &:before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        background: url(${gitIcon}) no-repeat;
+        background-size: cover;
+      }
     }
   }
 `;
 
 const Main = styled.div`
-  max-width: 42.25rem;
-  margin: 0 auto;
+  overflow-x: scroll;
+  white-space: nowrap;
+  @media ${responsive.desktop} {
+    max-width: 42.25rem;
+    margin: 0 auto;
+    overflow-x: inherit;
+  }
 `;
 const Category = styled.div`
-  width: 100%;
-  height: 60px;
+  display: inline-block;
   text-align: center;
-  padding-top: 10px;
-  /* background: #e6e6fa; */
+  padding: 10px 20px;
+  @media ${responsive.desktop} {
+    width: 100%;
+    /* height: 60px; */
+    text-align: center;
+    padding-top: 10px;
+  }
   button {
-    width: fit-content;
     height: 40px;
-    margin: 5px;
+    padding: 14px 16px 16px;
+    line-height: 1;
+    margin: 0px 5px 0px 0px;
     border: 1px solid #9696ea;
     border-radius: 1rem;
     background: #e6e6fa;
     color: #9696ea;
+
+    @media ${responsive.desktop} {
+      margin: 5px;
+      cursor: pointer;
+    }
   }
 `;
 
