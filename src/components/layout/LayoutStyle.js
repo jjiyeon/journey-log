@@ -19,14 +19,16 @@ const Header = styled.header`
   background-color: #9696ea;
 `;
 const HeaderItem = styled.div`
-  position: sticky;
+  position: relative;
+  display: flex;
+  justify-content: center;
   top: 50%;
-  text-align: center;
   transform: translate(0, -50%);
 
   @media ${responsive.desktop} {
     position: absolute;
     text-align: inherit;
+    text-align: center;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0 auto;
@@ -69,20 +71,22 @@ const Info = styled.div`
 `;
 
 const Main = styled.div`
+  max-width: 42.25rem;
+  margin: 0 auto;
   overflow-x: scroll;
   white-space: nowrap;
   @media ${responsive.desktop} {
-    max-width: 42.25rem;
     margin: 0 auto;
     overflow-x: inherit;
   }
 `;
 const Category = styled.div`
-  display: inline-block;
+  /* display: inline-block; */
   text-align: center;
   padding: 10px 20px;
   @media ${responsive.desktop} {
-    width: 100%;
+    /* width: 100%; */
+    display: inherit;
     /* height: 60px; */
     text-align: center;
     padding-top: 10px;
