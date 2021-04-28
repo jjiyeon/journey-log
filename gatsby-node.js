@@ -1,9 +1,24 @@
+const { createFilePath } = require(`gatsby-source-filesystem`);
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+  console.log("onCreateNode");
+  if (node.internal.type === `MarkdownRemark`) {
+    const value = createFilePath({ node, getNode });
+    console.log(value);
+    createNodeField({
+      name: `slug`,
+      node,
+      value
+    });
+  }
+};
+
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions;
 
   const blogPostTemplate = require.resolve(`./src/templates/blogTemplate.js`);
 
-  const result = await graphql(`
+  return await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
@@ -11,29 +26,37 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
-            frontmatter {
+            fields {
               slug
+            }
+            frontmatter {
+              title
+              category
+              draft
             }
           }
         }
       }
     }
-  `);
-
-  // Handle errors
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
-    return;
-  }
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.slug,
-      component: blogPostTemplate,
-      context: {
-        // additional data can be passed via context
-        slug: node.frontmatter.slug
-      }
+  `).then(result => {
+    // Create blog posts pages.
+    console.log(JSON.stringify(result));
+    const posts = result.data.allMarkdownRemark.edges.filter(
+      ({ node }) => !node.frontmatter.draft && !!node.frontmatter.category
+    );
+    posts.forEach((post, index) => {
+      const previous =
+        index === posts.length - 1 ? null : posts[index + 1].node;
+      const next = index === 0 ? null : posts[index - 1].node;
+      console.log(post.node.fields.slug);
+      createPage({
+        path: post.node.fields.slug,
+        component: blogPostTemplate,
+        context: {
+          // additional data can be passed via context
+          slug: post.node.fields.slug
+        }
+      });
     });
   });
 };
