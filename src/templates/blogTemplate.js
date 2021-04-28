@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 export default function Template({ data }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
+  console.log(frontmatter);
   return (
     <div>
       <h1>{frontmatter.title}</h1>
@@ -16,12 +17,12 @@ export default function Template({ data }) {
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         date(formatString: "YYYY-MM-DD")
-        slug
         title
+        category
       }
     }
   }
