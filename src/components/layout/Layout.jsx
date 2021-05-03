@@ -25,16 +25,6 @@ const Layout = () => {
             </UI.Info>
           </UI.HeaderItem>
         </UI.Header>
-        <UI.Main>
-          <UI.Category>
-            <button>All</button>
-            <button>About</button>
-            <button>React</button>
-            <button>Javascript</button>
-            <button>프로젝트</button>
-          </UI.Category>
-        </UI.Main>
-        <UI.Footer>Footer</UI.Footer>
       </UI.Wrapper>
     </>
   );
