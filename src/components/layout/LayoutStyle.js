@@ -26,11 +26,16 @@ const HeaderItem = styled.div`
   transform: translate(0, -50%);
 
   @media ${responsive.desktop} {
-    position: absolute;
+    max-width: 42.25rem;
+    padding-top: calc(77px / 2);
+    top: inherit;
+    transform: inherit;
+    display: inherit;
+    /* position: absolute;
     text-align: inherit;
     text-align: center;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     margin: 0 auto;
   }
 `;
