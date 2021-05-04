@@ -4,7 +4,14 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "post",
-        path: `${__dirname}/src/contents/post/react`
+        path: `${__dirname}/src/contents/post`
+      }
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "about",
+        path: `${__dirname}/src/contents/about`
       }
     },
     {
