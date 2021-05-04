@@ -16,15 +16,13 @@ const Main = styled.div`
   }
 `;
 const Category = styled.div`
-  /* display: inline-block; */
-  text-align: center;
+  /* text-align: center; */
   padding: 10px 20px;
   @media ${responsive.desktop} {
-    /* width: 100%; */
     display: inherit;
-    /* height: 60px; */
-    text-align: center;
-    padding-top: 10px;
+    /* text-align: center; */
+    /* padding-top: 10px; */
+    padding-left: 0;
   }
   button {
     height: 40px;

@@ -6,10 +6,11 @@ const Category = () => {
     <UI.Main>
       <UI.Category>
         <button>All</button>
-        <button>About</button>
-        <button>React</button>
-        <button>Javascript</button>
-        <button>프로젝트</button>
+        {/* <button>About</button> */}
+        <button>리뷰</button>
+        {/* <button>React</button> */}
+        {/* <button>Javascript</button> */}
+        <button>Book</button>
       </UI.Category>
     </UI.Main>
   );
