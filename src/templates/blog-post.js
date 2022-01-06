@@ -1,17 +1,22 @@
 // markdown-template.js
 import React from "react";
 import { graphql } from "gatsby";
-
+import Layout from "../components/layout/Layout";
 export default function Template({ data }) {
   const { markdownRemark } = data; // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark;
+  console.log("======================blogTemplate======================");
   console.log(frontmatter);
+  console.log(data);
   return (
-    <div>
-      <h1>{frontmatter.title}</h1>
-      <h2>{frontmatter.date}</h2>
-      <div dangerouslySetInnerHTML={{ __html: html }} />
-    </div>
+    <>
+      <Layout />
+      <div>
+        <h1>{frontmatter.title}</h1>
+        <h2>{frontmatter.date}</h2>
+        <div dangerouslySetInnerHTML={{ __html: html }} />
+      </div>
+    </>
   );
 }
 
