@@ -1,17 +1,17 @@
 import React from "react";
-import UI from "./LayoutStyle";
-import Header from "../header/Header";
+import UI from "./HeaderStyle";
+import logo from "../../images/kkulFace.jpg";
 
-const Layout = () => {
+const Header = () => {
   return (
     <>
-      <UI.Wrapper>
-        <Header>
-          {/* <UI.HeaderItem>
+      <UI.HeaderContainer>
+        <UI.Header>
+          <UI.HeaderItem>
             <UI.Logo>
               <img src={logo} alt="logo image" />
             </UI.Logo>
-            <UI.Info>
+            {/* <UI.Info>
               <h1>journey.log</h1>
               <p>Frontend에 관심이 많고 떡볶이를 좋아합니다</p>
               <a
@@ -21,12 +21,12 @@ const Layout = () => {
               >
                 <i>github</i>
               </a>
-            </UI.Info>
-          </UI.HeaderItem> */}
-        </Header>
-      </UI.Wrapper>
+            </UI.Info> */}
+          </UI.HeaderItem>
+        </UI.Header>
+      </UI.HeaderContainer>
     </>
   );
 };
 
-export default Layout;
+export default Header;
