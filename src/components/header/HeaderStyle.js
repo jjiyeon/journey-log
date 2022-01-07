@@ -2,15 +2,21 @@ import styled from "styled-components";
 import { responsive } from "../util";
 
 const HeaderContainer = styled.div`
-  width: calc(100% / 3);
-  height: 100%;
-  color: tomato;
+  width: 100%;
+  height: 60px;
 `;
 const Header = styled.header`
   width: 100%;
-  height: 10rem;
+  height: 100%;
   position: relative;
-  background-color: #9696ea;
+  /* background-color: #9696ea; */
+
+  h1 {
+    margin: 0;
+    display: inline-block;
+    font-size: 28px;
+    margin: 13.5px 16px;
+  }
 `;
 const HeaderItem = styled.div`
   position: relative;
