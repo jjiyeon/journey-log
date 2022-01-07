@@ -4,6 +4,7 @@ import Layout from "../components/layout/Layout";
 import Category from "../components/category/Category";
 import ContentsList from "../components/list/ContentsList";
 import { createGlobalStyle } from "styled-components";
+import Bio from "../bio";
 
 // styles
 const GlobalStyle = createGlobalStyle`
@@ -13,12 +14,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 // markup
 const App = ({ data }) => {
-  console.log("index...");
+  console.log("index...!");
   console.log(data);
   return (
     <>
       <GlobalStyle />
       <Layout />
+      <Bio />
       <Category />
       <ContentsList />
     </>
