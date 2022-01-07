@@ -1,11 +1,7 @@
 import styled from "styled-components";
-const size = {
-  desktop: "770px"
-};
-const responsive = {
-  desktop: `(min-width: ${size.desktop})`
-};
-const Main = styled.div`
+import { responsive } from "../util";
+
+const CategoryContainer = styled.div`
   max-width: 42.25rem;
   margin: 0 auto;
   overflow-x: scroll;
@@ -16,12 +12,17 @@ const Main = styled.div`
   }
 `;
 const Category = styled.div`
-  /* text-align: center; */
   padding: 10px 20px;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+  }
   @media ${responsive.desktop} {
     display: inherit;
-    /* text-align: center; */
-    /* padding-top: 10px; */
     padding-left: 0;
   }
   button {
@@ -42,6 +43,6 @@ const Category = styled.div`
 `;
 
 export default {
-  Main,
-  Category
+  CategoryContainer,
+  Category,
 };

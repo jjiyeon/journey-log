@@ -3,16 +3,24 @@ import UI from "./CategoryStyle";
 
 const Category = () => {
   return (
-    <UI.Main>
+    <UI.CategoryContainer>
       <UI.Category>
-        <button>All</button>
+        <ul>
+          <li>
+            <button>All</button>
+          </li>
+          <li>
+            <button>리뷰</button>
+          </li>
+          <li>
+            <button>Book</button>
+          </li>
+        </ul>
         {/* <button>About</button> */}
-        <button>리뷰</button>
         {/* <button>React</button> */}
         {/* <button>Javascript</button> */}
-        <button>Book</button>
       </UI.Category>
-    </UI.Main>
+    </UI.CategoryContainer>
   );
 };
 
