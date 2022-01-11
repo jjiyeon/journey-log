@@ -1,10 +1,10 @@
-import * as React from "react";
+import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout/Layout";
 import Category from "../components/category/Category";
 import ContentsList from "../components/list/ContentsList";
 import { createGlobalStyle } from "styled-components";
-import Bio from "../bio";
+import Bio from "../components/bio/Bio";
 
 // styles
 const GlobalStyle = createGlobalStyle`
