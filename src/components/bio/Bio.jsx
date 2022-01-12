@@ -8,21 +8,43 @@ const Bio = () => {
     <StaticQuery
       query={bioQuery}
       render={(data) => {
-        const { author, social, introduction } = data.site.siteMetadata;
-        <UI.BioContainder>
-          <UI.Author>
-            <UI.AuthorDescription>
-              <Image
-                className="author-image"
-                fixed={data.avatar.childImageSharp.fixed}
-                alt={author}
-                style={{
-                  borderRadius: `100%`,
-                }}
-              />
-            </UI.AuthorDescription>
-          </UI.Author>
-        </UI.BioContainder>;
+        const { author, email, social, introduction } = data.site.siteMetadata;
+        return (
+          <UI.BioContainder>
+            <UI.Author>
+              <UI.AuthorDescription>
+                <Image
+                  className="author-image"
+                  fluid={data.avatar.childImageSharp.fluid}
+                  alt={author}
+                  style={{
+                    borderRadius: `100%`,
+                  }}
+                />
+                <UI.AuthorName>
+                  <h1>엄지연</h1>
+                  <UI.AuthorIntro>{introduction}</UI.AuthorIntro>
+                  <UI.AuthorEmail>
+                    <Image
+                      className="author-icon"
+                      fluid={data.emailIcon.childImageSharp.fluid}
+                    />
+                    {email}
+                  </UI.AuthorEmail>
+                  <UI.AuthorGithub>
+                    <Image
+                      className="author-icon"
+                      fluid={data.githubIcon.childImageSharp.fluid}
+                    />
+                    {social.github && (
+                      <a href={`https://github.com/${social.github}`}>GitHub</a>
+                    )}
+                  </UI.AuthorGithub>
+                </UI.AuthorName>
+              </UI.AuthorDescription>
+            </UI.Author>
+          </UI.BioContainder>
+        );
       }}
     />
   );
@@ -30,10 +52,24 @@ const Bio = () => {
 
 const bioQuery = graphql`
   query BioQuery {
-    avatar: file(absolutePath: { regex: "/kkulFace.jpg/" }) {
+    avatar: file(absolutePath: { regex: "/my.jpg/" }) {
       childImageSharp {
-        fixed(width: 72, height: 72) {
-          ...GatsbyImageSharpFixed
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    emailIcon: file(absolutePath: { regex: "/email.png/" }) {
+      childImageSharp {
+        fluid(maxWidth: 20) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    githubIcon: file(absolutePath: { regex: "/github.png/" }) {
+      childImageSharp {
+        fluid(maxWidth: 20) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
@@ -41,6 +77,7 @@ const bioQuery = graphql`
       siteMetadata {
         author
         introduction
+        email
         social {
           twitter
           github
