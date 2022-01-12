@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import gitIcon from "../../images/Octicons-mark-github.png";
 
-const Wrapper = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 100%;
 `;
-
+const Wrapper = styled.div`
+  width: 42.25rem;
+  margin: 0 auto;
+`;
 const Info = styled.div`
   display: inline-block;
   color: #fff;
@@ -35,6 +38,7 @@ const Info = styled.div`
 
 const Footer = styled.div``;
 export default {
+  Container,
   Wrapper,
   Info,
   Footer,
