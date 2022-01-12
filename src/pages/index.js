@@ -5,6 +5,7 @@ import Category from "../components/category/Category";
 import ContentsList from "../components/list/ContentsList";
 import { createGlobalStyle } from "styled-components";
 import Bio from "../components/bio/Bio";
+import Skils from "../components/skils/Skils";
 
 // styles
 const GlobalStyle = createGlobalStyle`
@@ -19,10 +20,11 @@ const App = ({ data }) => {
   return (
     <>
       <GlobalStyle />
-      <Layout />
-      <Bio />
-      <Category />
-      <ContentsList />
+      <Layout>
+        <Bio />
+        <Skils />
+        {/* <ContentsList /> */}
+      </Layout>
     </>
   );
 };
