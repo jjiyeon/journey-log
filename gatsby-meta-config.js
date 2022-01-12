@@ -2,11 +2,12 @@ module.exports = {
   title: `Journey.log`,
   description: `Blog posted about ...`,
   author: `journey`,
-  introduction: `I explain with words and code. I explain with words and code. I explain with words and code.`,
-  siteUrl: `journey-log.netlify.app`, // Your blog site url
+  introduction: `성장추구형 프론트엔드 개발자. 리딩하는 개발자를 목표로 합니다.`,
+  siteUrl: `https://journey-log.netlify.app`, // Your blog site url journey-log.netlify.app
+  email: `ejy1105@gmail.com`,
   social: {
     twitter: ``, // Your Twitter account
-    github: ``, // Your GitHub account
+    github: `jjiyeon`, // Your GitHub account
     medium: ``, // Your Medium account
     facebook: ``, // Your Facebook account
     linkedin: ``, // Your LinkedIn account
